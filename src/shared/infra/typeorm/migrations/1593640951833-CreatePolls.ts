@@ -33,6 +33,13 @@ export default class CreatePolls1593640951833 implements MigrationInterface {
               default: true,
             },
             {
+              name: 'hash',
+              type: 'uuid',
+              generationStrategy: 'uuid',
+              default: 'uuid_generate_v4()',
+              isUnique: true,
+            },
+            {
               name: 'owner_id',
               type: 'uuid',
             },
