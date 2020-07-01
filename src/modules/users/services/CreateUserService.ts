@@ -16,7 +16,7 @@ interface RequestDTO {
 @injectable()
 class CreateUserService {
   constructor(
-    @inject('UsersReository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
     @inject('HashProvider')
