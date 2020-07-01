@@ -42,3 +42,5 @@ class Poll {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export default Poll;
