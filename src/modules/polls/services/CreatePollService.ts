@@ -31,3 +31,4 @@ class createPollService {
     return poll;
   }
 }
+export default createPollService;
