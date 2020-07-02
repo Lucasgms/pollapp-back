@@ -21,7 +21,7 @@ class Poll {
   description: string;
 
   @Column()
-  options: JSON;
+  options: string;
 
   @Column()
   is_public: boolean;
