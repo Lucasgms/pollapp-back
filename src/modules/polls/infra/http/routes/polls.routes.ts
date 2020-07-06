@@ -11,5 +11,6 @@ pollsRouter.use(ensureAuthenticated);
 pollsRouter.post('/', pollsController.create);
 pollsRouter.get('/', pollsController.index);
 pollsRouter.get('/:id', pollsController.get);
+pollsRouter.put('/:id', pollsController.edit);
 
 export default pollsRouter;
