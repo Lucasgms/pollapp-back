@@ -9,5 +9,6 @@ const pollsController = new PollsController();
 pollsRouter.use(ensureAuthenticated);
 
 pollsRouter.post('/', pollsController.create);
+pollsRouter.get('/', pollsController.index);
 
 export default pollsRouter;
