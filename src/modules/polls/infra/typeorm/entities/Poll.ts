@@ -20,8 +20,8 @@ class Poll {
   @Column()
   description: string;
 
-  @Column()
-  options: string;
+  @Column({ type: 'json' })
+  options: JSON;
 
   @Column()
   is_public: boolean;

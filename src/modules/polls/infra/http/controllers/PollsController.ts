@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import CreatePollService from '@modules/polls/services/CreatePollService';
 import ListUserPollsService from '@modules/polls/services/ListUserPollsService';
 import GetPollDetailsService from '@modules/polls/services/GetPollDetailsService';
+import EditPollService from '@modules/polls/services/EditPollService';
 
 export default class PollsController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -46,6 +47,21 @@ export default class PollsController {
 
     const polls = await getPoll.execute({
       owner_id,
+      poll_id: id,
+    });
+
+    return response.json(polls);
+  }
+
+  public async edit(request: Request, response: Response): Promise<Response> {
+    const editPoll = container.resolve(EditPollService);
+    const { id: user_id  } = request.user;
+    const { id } = request.params;
+    const { poll } = request.body;
+
+    const polls = await editPoll.execute({
+      data: poll,
+      user_id,
       poll_id: id,
     });
 
