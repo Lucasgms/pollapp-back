@@ -3,6 +3,7 @@ import { container } from 'tsyringe';
 
 import CreatePollService from '@modules/polls/services/CreatePollService';
 import ListUserPollsService from '@modules/polls/services/ListUserPollsService';
+import GetPollDetailsService from '@modules/polls/services/GetPollDetailsService';
 
 export default class PollsController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -33,6 +34,19 @@ export default class PollsController {
 
     const polls = await listPolls.execute({
       owner_id,
+    });
+
+    return response.json(polls);
+  }
+
+  public async get(request: Request, response: Response): Promise<Response> {
+    const getPoll = container.resolve(GetPollDetailsService);
+    const { id: owner_id  } = request.user;
+    const { id } = request.params;
+
+    const polls = await getPoll.execute({
+      owner_id,
+      poll_id: id,
     });
 
     return response.json(polls);
