@@ -34,7 +34,15 @@ class PollsRepository implements IPollsRepository {
     return poll;
   }
 
-  save(poll: Poll): Promise<Poll> {
+  public async findByOwnerId(owner_id: string): Promise<Poll[]> {
+    const polls = await this.ormRepository.find({
+      where: { owner_id },
+    });
+
+    return polls;
+  }
+
+  public async save(poll: Poll): Promise<Poll> {
     return this.ormRepository.save(poll);
   }
 }
