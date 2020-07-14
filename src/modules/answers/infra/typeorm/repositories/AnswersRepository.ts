@@ -38,3 +38,5 @@ class AnswersRepository implements IAnswersRepository {
     return this.ormRepository.save(answer);
   }
 }
+
+export default AnswersRepository;
