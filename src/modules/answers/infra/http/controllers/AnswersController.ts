@@ -8,9 +8,8 @@ export default class AnswersController {
     const {
       poll_id,
       option,
+      user_id,
     } = request.body;
-
-    const { id: user_id } = request.user || null;
 
     const createAnswer = container.resolve(CreateAnswerService);
 
