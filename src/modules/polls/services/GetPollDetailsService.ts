@@ -4,7 +4,6 @@ import AppError from '@shared/errors/AppError';
 
 import Poll from '../infra/typeorm/entities/Poll';
 import IPollsRepository from '../repositories/IPollsRepository';
-import ICreatePollDTO from '../dtos/ICreatePollDTO';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 
 interface IListPollsDTO {
