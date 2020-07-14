@@ -5,5 +5,5 @@ export default interface IAnswersRepository {
   create(data: ICreateAnswerDTO): Promise<Answer>;
   findAllByPollId(poll_id: string): Promise<Answer[]>;
   findAllByUserId(user_id: string): Promise<Answer[]>;
-  save(asnwer: Answer): Promise<Answer>;
+  save(answer: Answer): Promise<Answer>;
 }
