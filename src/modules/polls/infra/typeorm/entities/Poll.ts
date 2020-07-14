@@ -5,9 +5,11 @@ import {
   ManyToOne,
   JoinColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  OneToMany
 } from 'typeorm';
 import User from '@modules/users/infra/typeorm/entities/User';
+import Answer from '@modules/answers/infra/typeorm/entities/Answer';
 
 @Entity('polls')
 class Poll {
@@ -35,6 +37,9 @@ class Poll {
   @ManyToOne(() => User)
   @JoinColumn({ name: 'owner_id' })
   owner: User;
+
+  @OneToMany(() => Answer, answer => answer.poll)
+  answers: Answer[];
 
   @CreateDateColumn()
   created_at: Date;

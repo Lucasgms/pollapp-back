@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import Answer from '@modules/answers/infra/typeorm/entities/Answer';
 
 @Entity('users')
 class User {
@@ -13,6 +14,9 @@ class User {
   
   @Column()
   password: string;
+
+  @OneToMany(() => Answer, answer => answer.user)
+  answers: Answer[];
 
   @CreateDateColumn()
   created_at: Date;
