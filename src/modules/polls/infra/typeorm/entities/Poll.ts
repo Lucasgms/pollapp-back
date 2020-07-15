@@ -36,7 +36,7 @@ class Poll {
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'owner_id' })
-  owner: User;
+  owner: Promise<User>;
 
   @OneToMany(() => Answer, answer => answer.poll)
   answers: Answer[];

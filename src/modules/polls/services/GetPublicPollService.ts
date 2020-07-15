@@ -25,6 +25,8 @@ class getPublicPollService {
       throw new AppError('Poll does not exists', 404);
     }
 
+    await poll.owner
+
     return poll;
   }
 }
