@@ -39,7 +39,7 @@ class createPollService {
       throw new AppError('Unauthorized', 401);
     }
 
-    const poll = await this.pollsRepository.save(data);
+    const poll = await this.pollsRepository.save({...foundPoll, ...data});
 
     return poll;
   }
